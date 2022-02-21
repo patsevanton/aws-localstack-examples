@@ -38,7 +38,7 @@ awslocal iam attach-group-policy --group-name AWSAdminsGroup --policy-arn arn:aw
 ```
 Output empty.
 
-## Confirm the policy is attached to the AWSAdminsGroup user group
+## Verify the policy is attached to the AWSAdminsGroup user group
 ```
 awslocal iam list-attached-group-policies --group-name AWSAdminsGroup
 ```
