@@ -36,7 +36,7 @@ Output:
 ```
 awslocal iam attach-group-policy --group-name AWSAdminsGroup --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 ```
-Output emptry.
+Output empty.
 
 ## Confirm the policy is attached to the AWSAdminsGroup user group
 ```
@@ -56,50 +56,49 @@ Output:
 
 ## Create the user
 ```
-aws iam create-user --user-name MyUser
+awslocal iam create-user --user-name MyUser
 ```
 Output:
 ```json
 {
     "User": {
-        "UserName": "MyUser",
         "Path": "/",
-        "CreateDate": "2018-12-14T03:13:02.581Z",
-        "UserId": "AIDAJY2PE5XUZ4EXAMPLE",
-        "Arn": "arn:aws:iam::123456789012:user/MyUser"
+        "UserName": "MyUser",
+        "UserId": "gj4yfvcjmhqw3715kau7",
+        "Arn": "arn:aws:iam::000000000000:user/MyUser",
+        "CreateDate": "2022-02-21T09:55:01.093Z"
     }
 }
 ```
 
 ## Add the user to the group
 ```
-aws iam add-user-to-group --user-name MyUser --group-name AWSAdminsGroup
+awslocal iam add-user-to-group --user-name MyUser --group-name AWSAdminsGroup
 ```
+Output empty.
 
 ## Verify that the AWSAdminsGroup group contains the MyUser
 ```
-aws iam get-group --group-name AWSAdminsGroup
+awslocal iam get-group --group-name AWSAdminsGroup
 ```
 Output:
 ```json
 {
-    "Group": {
-        "GroupName": "MyIamGroup",
-        "CreateDate": "2018-12-14T03:03:52Z",
-        "GroupId": "AGPAJNUJ2W4IJVEXAMPLE",
-        "Arn": "arn:aws:iam::123456789012:group/MyIamGroup",
-        "Path": "/"
-    },
     "Users": [
         {
-            "UserName": "MyUser",
             "Path": "/",
-            "CreateDate": "2018-12-14T03:13:02Z",
-            "UserId": "AIDAJY2PE5XUZ4EXAMPLE",
-            "Arn": "arn:aws:iam::123456789012:user/MyUser"
+            "UserName": "MyUser",
+            "UserId": "gj4yfvcjmhqw3715kau7",
+            "Arn": "arn:aws:iam::000000000000:user/MyUser"
         }
     ],
-    "IsTruncated": "false"
+    "Group": {
+        "Path": "/",
+        "GroupName": "AWSAdminsGroup",
+        "GroupId": "7w1t3fmldzmlbzssou5x",
+        "Arn": "arn:aws:iam::000000000000:group/AWSAdminsGroup",
+        "CreateDate": "2022-02-21T09:53:32.256Z"
+    }
 }
 ```
 
