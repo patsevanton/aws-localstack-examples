@@ -6,11 +6,11 @@ Output:
 ```json
 {
     "Group": {
-        "Path": "/", 
-        "CreateDate": "2014-06-05T20:29:53.622Z", 
-        "GroupId":"ABCDEFGHABCDEFGHABCDE",
-        "Arn": "arn:aws:iam::123456789012:group/AWSAdminsGroup", 
-        "GroupName": "AWSAdminsGroup"
+        "Path": "/",
+        "GroupName": "AWSAdminsGroup",
+        "GroupId": "bkk8m01rp7mfr6e8rdaq",
+        "Arn": "arn:aws:iam::000000000000:group/AWSAdminsGroup",
+        "CreateDate": "2022-02-21T09:28:14.971Z"
     }
 }
 ```
@@ -23,11 +23,10 @@ Output:
 {
     "Groups": [
         {
-            "Path": "/", 
-            "CreateDate": "2014-06-05T20:29:53.622Z", 
-            "GroupId":"ABCDEFGHABCDEFGHABCDE", 
-            "Arn": "arn:aws:iam::123456789012:group/AWSAdminsGroup", 
-            "GroupName": "AWSAdminsGroup"
+            "Path": "/",
+            "GroupName": "AWSAdminsGroup",
+            "GroupId": "bkk8m01rp7mfr6e8rdaq",
+            "Arn": "arn:aws:iam::000000000000:group/AWSAdminsGroup"
         }
     ]
 }
@@ -35,6 +34,12 @@ Output:
 Attach the policy called AdministratorAccess to your AWSAdminsGroup user group
 ```
 awslocal iam attach-group-policy --group-name AWSAdminsGroup --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+```
+Output emptry.
+
+Confirm the policy is attached to the AWSAdminsGroup user group
+```
+awslocal iam list-attached-group-policies --group-name AWSAdminsGroup
 ```
 Output:
 ```json
@@ -44,25 +49,7 @@ Output:
             "PolicyName": "AdministratorAccess",
             "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
         }
-    ],
-    "IsTruncated": false
-}
-```
-
-Confirm the policy is attached to the AWSAdminsGroup user group
-```
-awslocal iam list-attached-group-policies --group-name AWSAdminsGroup
-```
-Output:
-```
-{
-    "AttachedPolicies": [
-        {
-            "PolicyName": "AdministratorAccess",
-            "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
-        }
-    ],
-    "IsTruncated": false
+    ]
 }
 ```
 
