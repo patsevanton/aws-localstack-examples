@@ -49,6 +49,23 @@ Output:
 }
 ```
 
+Confirm the policy is attached to the Admins user group
+```
+awslocal iam list-attached-group-policies --group-name Admins
+```
+Output:
+```
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AdministratorAccess",
+            "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        }
+    ],
+    "IsTruncated": false
+}
+```
+
 Run by terraform
 ```
 terraform init
