@@ -1,6 +1,6 @@
 Create an administrators user group
 ```
-awslocal iam create-group --group-name Admins
+awslocal iam create-group --group-name AWSAdminsGroup
 ```
 Output:
 ```json
@@ -9,8 +9,8 @@ Output:
         "Path": "/", 
         "CreateDate": "2014-06-05T20:29:53.622Z", 
         "GroupId":"ABCDEFGHABCDEFGHABCDE",
-        "Arn": "arn:aws:iam::123456789012:group/Admins", 
-        "GroupName": "Admins"
+        "Arn": "arn:aws:iam::123456789012:group/AWSAdminsGroup", 
+        "GroupName": "AWSAdminsGroup"
     }
 }
 ```
@@ -26,15 +26,15 @@ Output:
             "Path": "/", 
             "CreateDate": "2014-06-05T20:29:53.622Z", 
             "GroupId":"ABCDEFGHABCDEFGHABCDE", 
-            "Arn": "arn:aws:iam::123456789012:group/Admins", 
-            "GroupName": "Admins"
+            "Arn": "arn:aws:iam::123456789012:group/AWSAdminsGroup", 
+            "GroupName": "AWSAdminsGroup"
         }
     ]
 }
 ```
-Attach the policy called AdministratorAccess to your Admins user group
+Attach the policy called AdministratorAccess to your AWSAdminsGroup user group
 ```
-awslocal iam attach-group-policy --group-name Admins --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+awslocal iam attach-group-policy --group-name AWSAdminsGroup --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 ```
 Output:
 ```json
@@ -49,9 +49,9 @@ Output:
 }
 ```
 
-Confirm the policy is attached to the Admins user group
+Confirm the policy is attached to the AWSAdminsGroup user group
 ```
-awslocal iam list-attached-group-policies --group-name Admins
+awslocal iam list-attached-group-policies --group-name AWSAdminsGroup
 ```
 Output:
 ```
