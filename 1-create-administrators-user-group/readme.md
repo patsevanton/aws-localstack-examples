@@ -1,4 +1,4 @@
-Create an administrators user group
+## Create an administrators user group
 ```
 awslocal iam create-group --group-name AWSAdminsGroup
 ```
@@ -14,7 +14,7 @@ Output:
     }
 }
 ```
-List the user groups in your AWS account 
+## List the user groups in your AWS account 
 ```
 awslocal iam list-groups
 ```
@@ -31,13 +31,14 @@ Output:
     ]
 }
 ```
-Attach the policy called AdministratorAccess to your AWSAdminsGroup user group
+
+## Attach the policy called AdministratorAccess to your AWSAdminsGroup user group
 ```
 awslocal iam attach-group-policy --group-name AWSAdminsGroup --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 ```
 Output emptry.
 
-Confirm the policy is attached to the AWSAdminsGroup user group
+## Confirm the policy is attached to the AWSAdminsGroup user group
 ```
 awslocal iam list-attached-group-policies --group-name AWSAdminsGroup
 ```
@@ -53,7 +54,56 @@ Output:
 }
 ```
 
-Run by terraform
+## Create the user
+```
+aws iam create-user --user-name MyUser
+```
+Output:
+```json
+{
+    "User": {
+        "UserName": "MyUser",
+        "Path": "/",
+        "CreateDate": "2018-12-14T03:13:02.581Z",
+        "UserId": "AIDAJY2PE5XUZ4EXAMPLE",
+        "Arn": "arn:aws:iam::123456789012:user/MyUser"
+    }
+}
+```
+
+## Add the user to the group
+```
+aws iam add-user-to-group --user-name MyUser --group-name AWSAdminsGroup
+```
+
+## Verify that the AWSAdminsGroup group contains the MyUser
+```
+aws iam get-group --group-name AWSAdminsGroup
+```
+Output:
+```json
+{
+    "Group": {
+        "GroupName": "MyIamGroup",
+        "CreateDate": "2018-12-14T03:03:52Z",
+        "GroupId": "AGPAJNUJ2W4IJVEXAMPLE",
+        "Arn": "arn:aws:iam::123456789012:group/MyIamGroup",
+        "Path": "/"
+    },
+    "Users": [
+        {
+            "UserName": "MyUser",
+            "Path": "/",
+            "CreateDate": "2018-12-14T03:13:02Z",
+            "UserId": "AIDAJY2PE5XUZ4EXAMPLE",
+            "Arn": "arn:aws:iam::123456789012:user/MyUser"
+        }
+    ],
+    "IsTruncated": "false"
+}
+```
+
+## Run by terraform
 ```
 terraform init
 terraform apply  -auto-approve
