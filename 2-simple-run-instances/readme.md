@@ -17,7 +17,18 @@ awslocal ec2 describe-images --owner amazon --query 'Images[].[ImageId,Name]' --
 
 ## Get a list of instance types from aws cli
 ```
-aws ec2 describe-instance-types --filters Name=current-generation,Values=true | jq -c '.InstanceTypes | reduce .[] as $i ({}; .[$i.InstanceType] = { memory_in_mib: $i.MemoryInfo.SizeInMiB, vcpus: $i.VCpuInfo.DefaultVCpus, disk_in_gb: $i.InstanceStorageInfo.TotalSizeInGB})'
+awslocal ec2 describe-instance-types --filters Name=current-generation,Values=true | jq -c '.InstanceTypes | reduce .[] as $i ({}; .[$i.InstanceType] = { memory_in_mib: $i.MemoryInfo.SizeInMiB, vcpus: $i.VCpuInfo.DefaultVCpus, disk_in_gb: $i.InstanceStorageInfo.TotalSizeInGB})' | jq
+```
+
+## Display your key pair
+```
+awslocal ec2 describe-key-pairs
+```
+Output:
+```json
+{
+    "KeyPairs": []
+}
 ```
 
 ## Create a New Key Pair for EC2 Instances
@@ -130,14 +141,18 @@ Output:
 }
 ```
 
-## Find out the used Key pair name via AWS CLI
-```json
-awslocal ec2 describe-instances --instance-ids i-8895b5c3ebc79270f | jq '.Reservations[].Instances[].KeyName'
-```
-
 ## Get ec2 instance state at CLI
 ```
 awslocal ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, ImageId, State.code, State.Name]" --o text
+```
+
+## Find out the used Key pair name via AWS CLI
+```
+awslocal ec2 describe-instances --instance-ids i-6646d5bff71544a90 | jq '.Reservations[].Instances[].KeyName'
+```
+Output:
+```
+"AntonLocalStackKeyPair"
 ```
 
 ## Run by terraform
