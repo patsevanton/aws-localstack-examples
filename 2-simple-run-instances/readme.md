@@ -15,6 +15,11 @@ awslocal ec2 describe-images
 awslocal ec2 describe-images --owner amazon --query 'Images[].[ImageId,Name]' --output text
 ```
 
+## Get a list of instance types from aws cli
+```
+aws ec2 describe-instance-types --filters Name=current-generation,Values=true | jq -c '.InstanceTypes | reduce .[] as $i ({}; .[$i.InstanceType] = { memory_in_mib: $i.MemoryInfo.SizeInMiB, vcpus: $i.VCpuInfo.DefaultVCpus, disk_in_gb: $i.InstanceStorageInfo.TotalSizeInGB})'
+```
+
 ## Create a New Key Pair for EC2 Instances
 ```
 awslocal ec2 create-key-pair --key-name AntonLocalStackKeyPair --output text > AntonLocalStackKeyPair.pem
@@ -143,6 +148,7 @@ terraform apply  -auto-approve
 
 
 Links:
+https://github.com/aws/aws-cli/issues/1279
 https://opensourceconnections.com/blog/2015/07/27/advanced-aws-cli-jmespath-query/
 https://bootstrap-it.com/awscli/
 https://fossies.org/linux/aws-cli/awscli/examples/ec2/run-instances.rst
