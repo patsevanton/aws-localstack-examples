@@ -10,7 +10,7 @@ awslocal ec2 describe-images
 ```
 
 ## Describe an AMI images (ImageId and Name)
-## https://opensourceconnections.com/blog/2015/07/27/advanced-aws-cli-jmespath-query/
+
 ```
 awslocal ec2 describe-images --owner amazon --query 'Images[].[ImageId,Name]' --output text
 ```
@@ -141,4 +141,10 @@ terraform init
 terraform apply  -auto-approve
 ```
 
-https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html
+
+Links:
+https://opensourceconnections.com/blog/2015/07/27/advanced-aws-cli-jmespath-query/
+https://bootstrap-it.com/awscli/
+https://fossies.org/linux/aws-cli/awscli/examples/ec2/run-instances.rst
+https://www.baeldung.com/linux/aws-cli-ec2
+https://docs.outscale.com/en/userguide/Launching-Instances-Using-AWS-CLI.html
