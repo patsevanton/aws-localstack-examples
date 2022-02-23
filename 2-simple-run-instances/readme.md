@@ -1,3 +1,9 @@
+## Install jq
+```
+sudo apt update
+sudo apt install jq -y
+```
+
 ## Describe an AMI images
 ```
 awslocal ec2 describe-images
@@ -117,6 +123,16 @@ Output:
     "OwnerId": "000000000000",
     "ReservationId": "r-a09dc268"
 }
+```
+
+## Find out the used Key pair name via AWS CLI
+```json
+awslocal ec2 describe-instances --instance-ids i-8895b5c3ebc79270f | jq '.Reservations[].Instances[].KeyName'
+```
+
+## Get ec2 instance state at CLI
+```
+awslocal ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, ImageId, State.code, State.Name]" --o text
 ```
 
 ## Run by terraform
