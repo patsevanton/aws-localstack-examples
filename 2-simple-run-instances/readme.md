@@ -9,9 +9,114 @@ awslocal ec2 describe-images
 awslocal ec2 describe-images --owner amazon --query 'Images[].[ImageId,Name]' --output text
 ```
 
+## Create a New Key Pair for EC2 Instances
+```
+awslocal ec2 create-key-pair --key-name AntonLocalStackKeyPair --output text > AntonLocalStackKeyPair.pem
+```
+View AntonLocalStackKeyPair.pem
+```
+cat AntonLocalStackKeyPair.pem
+1a:cd:b9:c1:b9:03:ab:59:8b:72:ee:a3:ca:1b:70:81 -----BEGIN RSA PRIVATE KEY-----
+...
+-----END RSA PRIVATE KEY-----
+        AntonLocalStackKeyPair
+```
+
 ## Launch an instance into a default subnet
 ```
-awslocal ec2 run-instances --image-id ami-000c540e28953ace2 --instance-type t2.micro --key-name MyKeyPair
+awslocal ec2 run-instances --image-id ami-000c540e28953ace2 --instance-type t2.micro --key-name AntonLocalStackKeyPair
+```
+Output:
+```json
+{
+    "Groups": [
+        {
+            "GroupName": "default",
+            "GroupId": "sg-245f6a01"
+        }
+    ],
+    "Instances": [
+        {
+            "AmiLaunchIndex": 0,
+            "ImageId": "ami-000c540e28953ace2",
+            "InstanceId": "i-8829ff49f6ef8c536",
+            "InstanceType": "t2.micro",
+            "KernelId": "None",
+            "KeyName": "AntonLocalStackKeyPair",
+            "LaunchTime": "2022-02-23T05:25:53.000Z",
+            "Monitoring": {
+                "State": "enabled"
+            },
+            "Placement": {
+                "AvailabilityZone": "us-east-1a",
+                "GroupName": "",
+                "Tenancy": "default"
+            },
+            "Platform": "Linux/UNIX",
+            "PrivateDnsName": "ip-10-183-4-53.ec2.internal",
+            "PrivateIpAddress": "10.183.4.53",
+            "PublicDnsName": "ec2-54-214-85-231.compute-1.amazonaws.com",
+            "PublicIpAddress": "54.214.85.231",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "StateTransitionReason": "",
+            "SubnetId": "subnet-fa7f837b",
+            "VpcId": "vpc-bcee8c5b",
+            "Architecture": "x86_64",
+            "ClientToken": "",
+            "EbsOptimized": false,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Association": {
+                        "IpOwnerId": "000000000000",
+                        "PublicIp": "54.214.85.231"
+                    },
+                    "Attachment": {
+                        "AttachTime": "2015-01-01T00:00:00Z",
+                        "AttachmentId": "eni-attach-abc50794",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attached"
+                    },
+                    "Description": "Primary network interface",
+                    "Groups": [
+                        {
+                            "GroupName": "default",
+                            "GroupId": "sg-d5b2826eb1f1a9ff4"
+                        }
+                    ],
+                    "MacAddress": "1b:2b:3c:4d:5e:6f",
+                    "NetworkInterfaceId": "eni-14b5babf",
+                    "OwnerId": "000000000000",
+                    "PrivateIpAddress": "10.183.4.53",
+                    "PrivateIpAddresses": [
+                        {
+                            "Association": {
+                                "IpOwnerId": "000000000000",
+                                "PublicIp": "54.214.85.231"
+                            },
+                            "Primary": true,
+                            "PrivateIpAddress": "10.183.4.53"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-fa7f837b",
+                    "VpcId": "vpc-bcee8c5b"
+                }
+            ],
+            "SecurityGroups": [],
+            "SourceDestCheck": true,
+            "Tags": [],
+            "VirtualizationType": "hvm"
+        }
+    ],
+    "OwnerId": "000000000000",
+    "ReservationId": "r-a09dc268"
+}
 ```
 
 ## Run by terraform
