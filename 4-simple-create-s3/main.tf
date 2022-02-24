@@ -1,6 +1,6 @@
 # Create a bucket
 resource "aws_s3_bucket" "bucket1" {
-  bucket = "TestS3Bucket"
+  bucket = "tests3bucket"
 }
 
 # Upload an object
