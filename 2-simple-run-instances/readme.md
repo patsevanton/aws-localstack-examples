@@ -141,6 +141,11 @@ Output:
 }
 ```
 
+## Get ec2 instance at CLI
+```
+awslocal ec2 describe-instances
+```
+
 ## Get ec2 instance state at CLI
 ```
 awslocal ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, ImageId, State.code, State.Name]" --o text
