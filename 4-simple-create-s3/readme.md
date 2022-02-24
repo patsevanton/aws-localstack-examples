@@ -1,6 +1,6 @@
 ## Create a new AWS S3 Bucket
 ```
-awslocal s3 mb s3://test-s3-bucket
+awslocal s3 mb s3://TestS3Bucket
 ```
 
 ## Lists all AWS S3 Buckets
@@ -10,27 +10,27 @@ awslocal s3 ls
 
 ## Copy a single file from the local system to cloud-based AWS S3 Buckets
 ```
-awslocal s3 cp test.txt s3://test-s3-bucket
+awslocal s3 cp test.txt s3://TestS3Bucket
 ```
 
 ## List all Files in an S3 Bucket
 ```
-awslocal s3 ls s3://test-s3-bucket
+awslocal s3 ls s3://TestS3Bucket
 ```
 
 ## List all Files recursive human-readable summarize in an S3 Bucket
 ```
-awslocal s3 ls s3://test-s3-bucket --recursive --human-readable --summarize
+awslocal s3 ls s3://TestS3Bucket --recursive --human-readable --summarize
 ```
 
 ## List only the Filenames of an S3 Bucket
 ```
-awslocal s3api list-objects --bucket test-s3-bucket --output text --query "Contents[].{Key: Key}"
+awslocal s3api list-objects --bucket TestS3Bucket --output text --query "Contents[].{Key: Key}"
 ```
 
 ## Delete the content of AWS S3 via CLI (S3 RB)
 ```
-awslocal s3 rb s3://test-s3-bucket --force
+awslocal s3 rb s3://TestS3Bucket --force
 ```
 
 ## Run by terraform
