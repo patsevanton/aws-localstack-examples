@@ -48,3 +48,4 @@ https://linoxide.com/upload-files-to-s3-using-terraform/
 https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-every-apply
 https://lepczynski.it/en/aws_en/5-ways-to-remove-aws-s3-bucket/
 https://www.linkedin.com/pulse/complete-automated-infrastructure-build-up-aws-cloud-mahek-mulla
+https://gcorelabs.com/ru/support/articles/360002115857/
