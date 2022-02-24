@@ -15,7 +15,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
   }
 
   filter {
@@ -31,7 +31,7 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   key_name      = aws_key_pair.generated_key.key_name
 
-  tags {
+  tags = {
     Name = "HelloWorld"
   }
 }

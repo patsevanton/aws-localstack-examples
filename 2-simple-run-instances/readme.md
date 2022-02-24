@@ -170,3 +170,4 @@ https://fossies.org/linux/aws-cli/awscli/examples/ec2/run-instances.rst
 https://www.baeldung.com/linux/aws-cli-ec2
 https://docs.outscale.com/en/userguide/Launching-Instances-Using-AWS-CLI.html
 https://stackoverflow.com/questions/49743220/how-do-i-create-an-ssh-key-in-terraform
+https://artem.services/?p=1411

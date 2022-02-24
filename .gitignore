@@ -1,5 +1,5 @@
-1-create-administrators-user-group/.terraform.lock.hcl
-1-create-administrators-user-group/.terraform/
-1-create-administrators-user-group/terraform.tfstate
-1-create-administrators-user-group/terraform.tfstate.backup
-2-simple-run-instances/*.pem
+**/*.pem
+**/.terraform/*
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.backup
