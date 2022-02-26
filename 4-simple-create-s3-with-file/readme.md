@@ -49,3 +49,16 @@ https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-ever
 https://lepczynski.it/en/aws_en/5-ways-to-remove-aws-s3-bucket/
 https://www.linkedin.com/pulse/complete-automated-infrastructure-build-up-aws-cloud-mahek-mulla
 https://gcorelabs.com/ru/support/articles/360002115857/
+https://stackoverflow.com/questions/2547046/make-a-bucket-public-in-amazon-s3
+https://bobbyhadz.com/blog/aws-s3-allow-public-read-access
+https://www.devroom.io/2010/12/24/public-readable-amazon-s3-bucket-policy/
+https://stackoverflow.com/questions/19176926/how-to-make-all-objects-in-aws-s3-bucket-public-by-default
+https://stackoverflow.com/questions/63271357/aws-s3-make-bucket-public
+https://stackoverflow.com/questions/53346275/amazon-s3-bucket-policy-public-access-denied
+https://stackoverflow.com/questions/60348163/how-do-you-allow-granting-public-read-access-to-objects-uploaded-to-aws-s3
+https://stackoverflow.com/questions/27912462/how-do-i-make-all-files-in-an-s3-bucket-public
+https://auth0.com/blog/fantastic-public-s3-buckets-and-how-to-find-them/
+https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/S3/s3-bucket-public-read-access.html
+https://www.thegeekstuff.com/2019/04/aws-s3-cli-examples/
+https://devopslearning.medium.com/aws-s3-on-the-command-line-768658b33ec5
+https://www.chaossearch.io/blog/how-to-create-an-s3-bucket-with-aws-cli
