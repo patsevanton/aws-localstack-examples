@@ -23,11 +23,22 @@ awslocal s3 website s3://mypublicbucket/ --index-document index.html --error-doc
 ```
 awslocal s3api get-bucket-website --bucket mypublicbucket
 ```
+Output:
+```json
+{
+    "IndexDocument": {
+        "Suffix": "index.html"
+    },
+    "ErrorDocument": {
+        "Key": "error.html"
+    }
+}
+```
 
 ## Open in browser
 ```
 http://mypublicbucket.s3-website.localhost.localstack.cloud:4566/
-```s
+```
 
 Links:
 https://medium.com/@dangaldeependra/synchronize-between-aws-s3-and-local-windows-drive-52483e33a9e6
