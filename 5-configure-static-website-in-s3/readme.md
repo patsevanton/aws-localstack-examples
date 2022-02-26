@@ -1,5 +1,5 @@
 
-## ## Create a new aws S3 Bucket
+## Create a new aws S3 Bucket
 ```
 awslocal s3 mb s3://mypublicbucket
 ```
@@ -12,6 +12,14 @@ awslocal s3api put-bucket-acl --bucket mypublicbucket --acl public-read
 ## Synchronize between AWS S3 and Local Directory with Permissions Public Access
 ```
 awslocal s3 sync . s3://mypublicbucket --acl public-read
+```
+Output:
+```
+upload: ./main.tf to s3://mypublicbucket/main.tf
+upload: ./index.html to s3://mypublicbucket/index.html
+upload: ./error.html to s3://mypublicbucket/error.html
+upload: ./readme.md to s3://mypublicbucket/readme.md
+upload: ./provider.tf to s3://mypublicbucket/provider.tf
 ```
 
 ## Enable the s3 bucket to host an index and error html page
