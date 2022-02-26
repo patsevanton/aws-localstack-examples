@@ -48,6 +48,12 @@ Output:
 http://mypublicbucket.s3-website.localhost.localstack.cloud:4566/
 ```
 
+## Run by terraform
+```
+terraform init
+terraform apply -auto-approve
+```
+
 Links:
 https://medium.com/@dangaldeependra/synchronize-between-aws-s3-and-local-windows-drive-52483e33a9e6
 https://github.com/localstack/localstack/issues/854
