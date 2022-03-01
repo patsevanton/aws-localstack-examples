@@ -20,5 +20,8 @@ https://stackoverflow.com/questions/62724716/capturing-a-value-in-a-select-and-u
 https://brad-simonin.medium.com/create-an-aws-vpc-and-subnet-using-the-aws-cli-and-bash-a92af4d2e54b
 https://blog.ashiny.cloud/page/awscli-query-quickref/
 https://sammeechward.com/aws-cli-vpc-subnets-ec2-and-more/
+https://fossies.org/linux/aws-cli/awscli/examples/ec2/create-vpc.rst
+https://cloudly.engineer/wp-content/uploads/2019/09/AWS-CLI-Cheat-Sheet-EC2.html
+
 
 
