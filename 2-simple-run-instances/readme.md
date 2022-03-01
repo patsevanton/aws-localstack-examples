@@ -44,6 +44,16 @@ cat AntonLocalStackKeyPair.pem
         AntonLocalStackKeyPair
 ```
 
+## List subnetID
+```
+awslocal ec2 describe-subnets  --query "Subnets[*].SubnetId" --output text
+```
+
+## Launch an instance into a custom subnet
+```
+awslocal ec2 run-instances --image-id ami-000c540e28953ace2 --instance-type t2.micro --subnet-id subnet-3f9c68f4
+```
+
 ## Launch an instance into a default subnet
 ```
 awslocal ec2 run-instances --image-id ami-000c540e28953ace2 --instance-type t2.micro --key-name AntonLocalStackKeyPair
